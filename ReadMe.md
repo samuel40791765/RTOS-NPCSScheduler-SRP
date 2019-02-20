@@ -41,12 +41,12 @@ The wait function used to simulate resource usage time <br/>
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic6.png)
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic7.png)
 
-(2)	Task Set 2 (Arrival Time, Period): Task1: (5,55) CPU: 7 <br/>
-![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic8.png)
-![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic9.png)
- 
+(2)	Task Set 2 (Arrival Time, Period):<br/>
+Task1: (5,55) CPU: 7 <br/>
 Task2: (4,59) CPU: 3 R2: 2 R1:4 <br/>
 Task3: (0,70) CPU: 3 R1: 7 R1:2 <br/>
+![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic8.png)
+![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic9.png)
 
 3.	Schedulability Analysis <br/>
 (1)	Task Set 1: <br/>
@@ -55,15 +55,12 @@ Because the periods and computation times for both of these tasks are optimal, t
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic11.png)
 
 
-
-
 (2)	Task Set 2: <br/>
 Task 1 and Task 2 both arrive when Task 3 is computing. Task 1 arrives at Time 5, and Task 2 arrives at Time 4. Both of these tasks have a nearer deadline than Task 3. Normally in an EDF scheduler Task 3 would be preempted by the earlier deadline tasks, Task 1 and Task 2. However, Task 3 is currently using resources so preemption is disabled. Task 1 runs after Task 3 is finished using its resources, and Task 2 runs after Task 1 (Task 1 has an earlier deadline). Even thought this is a EDF scheduler, the NPCS results in a less responsive result for the earlier deadline tasks. <br/>
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic12.png)
 
 At Time 61-88, the tasks obey the rules of the EDF scheduler and run the task with the earlier deadline. There are no resource interferences within this time span.
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic13.png)
-
 
 
  
@@ -108,13 +105,16 @@ I had to modify the EDF scheduler I previously implemented in OSSchedNew. Beside
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic20.png)
 
 2.	Simulation Results <br/>
-(1)	Task Set 1 (Arrival Time, Period): Task1: (2,28) CPU: 2 R2: 3 R1:2 Task2: (0,40) CPU: 3 R1: 7 R2:2 <br/>
+(1)	Task Set 1 (Arrival Time, Period): <br/>
+Task1: (2,28) CPU: 2 R2: 3 R1:2 <br/>
+Task2: (0,40) CPU: 3 R1: 7 R2:2 <br/>
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic21.png)
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic22.png)
 
  
 
-(2)	Task Set 2 (Arrival Time, Period): Task1: (5,55) CPU: 7 <br/>
+(2)	Task Set 2 (Arrival Time, Period): <br/>
+Task1: (5,55) CPU: 7 <br/>
 Task2: (4,59) CPU: 3 R2: 2 R1:4 <br/>
 Task3: (0,70) CPU: 3 R1: 7 R1:2 <br/>
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic23.png)
@@ -133,10 +133,5 @@ At Time 2, Task 2 has not used any resources yet so it is pre-emptible by Task 1
 At Time 4, Task 3 is already using resources so the system ceiling is raised to 2. Since Task 2’s preemption level is not high enough and cannot be scheduled, Task 3 inherits its deadline.
 However, at Time 5 Task 1’s preemption level is higher than the system ceiling. Task 1 preempts Task 3. We do not have to be afraid of deadlocks because Task 1 has no resource conflicts with Task 3. After Task 1 is finished, we return back to Task 3 and finish running it.
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic26.png)
-
-
-4.	Experience/Impression <br/>
-Although implementing the NPCS protocol was quite easy, the SRT implementation was quite challenging. In SRT, deadlines for tasks are constantly changing and numerous situations have to be considered. The system ceiling is constantly changing and we have to consider whether or not tasks can be run according to the current system ceiling. Despite this, I overcame numerous obstacles to finish this project. Over the past few projects I have attained a solid grasp of how to program certain protocols and methods within a simple OS system. However, most of these protocols are only rudimentary and there are many more types of protocols within the world of real time operating systems. I hope I can use the skills I have learned through programming these projects to implement even more intermediate protocols in the future.
-
 
 
