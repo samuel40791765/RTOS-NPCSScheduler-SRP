@@ -8,15 +8,14 @@ The main objective of this project is to implement non-preemptible critical sect
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic1.png)
 
 (1)	Non-Premptible Section <br/>
-In a non-preemptible critical section implementation, the scheduler never allows a context switch whenever there are resources in use. To implement this, I decided to use the function OSSchedLock to control when to disable context switches.
-I implemented OSSchedLock() within OSMutexPend and OSSchedUnlock() within OSMutexPost. By doing this I disable context switches whenever we grab a resource and enable context switches again whenever we let go of the resource. <br/>
+In a non-preemptible critical section implementation, the scheduler never allows a context switch whenever there are resources in use. To implement this, I decided to use the function OSSchedLock to control when to disable context switches.I implemented OSSchedLock() within OSMutexPend and OSSchedUnlock() within OSMutexPost. By doing this I disable context switches whenever we grab a resource and enable context switches again whenever we let go of the resource. <br/>
 
-OSMutexPend:
+OSMutexPend: <br/>
  ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic2.png)
  
 
 <br/>
-OSMutexPost:
+OSMutexPost: <br/>
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic3.png)
 
 (2)	Task Simulation <br/>
@@ -68,17 +67,17 @@ PART 2 SRP Implementation <br/>
 1.	Implementation Description: <br/>
 The main objective of this project is to implement the Stack-Resource Policy. I decided to implement my code within OSTimeTick, OSMutexPend and OSMutexPost. <br/>
 (1)	Variables <br/>
-First, I implemented the variables I needed within the OS_EVENT and OS_TCB structures.
+First, I implemented the variables I needed within the OS_EVENT and OS_TCB structures. <br/>
 (a)	OS_EVENT: <br/>
 I implemented a new “ceiling” variable to save the system ceiling of resources.
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic14.png)
 
 (b)	OS_TCB: <br/>
 I implemented a new variable to save the original deadline of the task. The deadline will be changed/inherited often in a SRP setting so we have to save the original deadline.
-![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic15.png)
+![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic15.png) <br/>
 
 (c)	Global Variables: <br/>
-![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic16.png)
+![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic16.png) <br/>
 I.	SYSTEM_CEILING: to save the current system ceiling <br/>
 II.	PREV_SYSTEM_CEILING: to save the previous system ceiling <br/>
  
