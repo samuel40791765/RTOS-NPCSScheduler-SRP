@@ -1,4 +1,4 @@
-#Modifyied the kernel to have tasks support resource utilization on the Nios II 12sp2. Kernel was modified to support both the Non Preemptive Critical Section and the Stack Resource Policy. <br/>
+Modified the kernel to have tasks support resource utilization on the Nios II 12sp2. Kernel was modified to support both the Non Preemptive Critical Section and the Stack Resource Policy. <br/>
 Code only includes the basic OS Files of the RTOS System and the files I modified.<br/><br/>
 
 
