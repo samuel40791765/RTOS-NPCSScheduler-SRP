@@ -11,7 +11,7 @@ The main objective of this project is to implement non-preemptible critical sect
 In a non-preemptible critical section implementation, the scheduler never allows a context switch whenever there are resources in use. To implement this, I decided to use the function OSSchedLock to control when to disable context switches.I implemented OSSchedLock() within OSMutexPend and OSSchedUnlock() within OSMutexPost. By doing this I disable context switches whenever we grab a resource and enable context switches again whenever we let go of the resource. <br/>
 
 OSMutexPend: <br/>
- ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic2.png)
+![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic2.png)
  
 
 <br/>
