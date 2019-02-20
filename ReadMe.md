@@ -14,7 +14,6 @@ OSMutexPend: <br/>
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic2.png)
  
 
-<br/>
 OSMutexPost: <br/>
 ![alt text](https://raw.githubusercontent.com/samuel40791765/RTOS-NPCSScheduler-SRP/master/projectimages/pic3.png)
 
